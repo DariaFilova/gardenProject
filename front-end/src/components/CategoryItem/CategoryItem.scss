@@ -1,0 +1,22 @@
+.categoryItem {
+  text-decoration: none;
+  color: var(--color-text-black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__image {
+    max-width: 300px;
+    height: 340px;
+    margin-bottom: 20px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  p {
+    font-size: var(--font-size-naming);
+    font-weight: var(--font-weight-semi-bold);
+  }
+}
+

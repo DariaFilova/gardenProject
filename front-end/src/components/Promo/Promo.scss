@@ -1,0 +1,50 @@
+.promo {
+  margin-top: 80px;
+  padding: 130px 0;
+
+  background-color: var(--bg-blue);
+
+  h1 {
+    margin-bottom: 60px;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__image {
+    width: 40%;
+    object-fit: cover;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 40px;
+    button {
+      padding: 20px 50px;
+      border-radius: 13px;
+      outline: none;
+      font-weight: var(--font-weight-bold);
+      font-size: var(--font-size-buttons);
+    }
+
+    .primary {
+      background-color: #fff;
+      color: var(--color-text-main);
+      border: none;
+    }
+
+    .secondary {
+      color: #fff;
+      background-color: transparent;
+      border: 2px solid #fff;
+    }
+  }
+}
+

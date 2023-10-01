@@ -1,0 +1,46 @@
+.discountForm {
+  padding: var(--component-padding);
+  background: linear-gradient(263deg, #393 -0.43%, #006300 104.36%);
+  &__wrapper {
+    display: flex;
+    gap: 80px;
+  }
+  &__content {
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+
+      gap: 30px;
+      label {
+        span {
+          font-size: 90px;
+        }
+        font-size: 65px;
+        font-weight: var(--font-weight-bold);
+        color: white;
+      }
+      input {
+        width: 473px;
+        padding: 27px 50px;
+        outline: none;
+        border: none;
+        border-radius: 25px;
+        font-size: var(--font-size-naming);
+        font-weight: var(--font-weight-semi-bold);
+      }
+
+      button {
+        padding: 20px 95px;
+        background: transparent;
+        border: 2px solid white;
+        outline: none;
+        color: white;
+        font-weight: var(--font-weight-bold);
+        font-size: 28px;
+        border-radius: 25px;
+      }
+    }
+  }
+}
+

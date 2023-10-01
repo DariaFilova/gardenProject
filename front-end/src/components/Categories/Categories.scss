@@ -1,0 +1,27 @@
+.categories {
+  padding: var(--component-padding);
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  &__heading {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 26px;
+    button {
+      cursor: pointer;
+      outline: none;
+      border: 2px solid var(--color-text-gray);
+      color: var(--color-text-gray);
+      font-size: var(--font-size-extra-small);
+      padding: 7px;
+      background-color: transparent;
+      line-height: 130%;
+      font-weight: var(--font-weight-bold);
+    }
+  }
+}
+

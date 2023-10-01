@@ -1,0 +1,33 @@
+.header {
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 19px;
+  &__left {
+    display: flex;
+    gap: 59px;
+    align-items: center;
+  }
+
+  &__right {
+    display: flex;
+    gap: 54px;
+    align-items: center;
+  }
+  &__button {
+    align-self: center;
+    border: none;
+    outline: none;
+    background-color: var(--color-green-main);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: var(--font-weight-semi-bold);
+  }
+}
+
