@@ -31,9 +31,7 @@ app.use(express.json());
 const start = async () => {
   try {
     await sequelize.sync().then(
-      (result) => {
-        /*console.log(result) */
-      },
+      (result) => {},
       (err) => console.log(err)
     );
 

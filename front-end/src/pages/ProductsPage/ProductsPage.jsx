@@ -4,12 +4,12 @@ import Filter from '../../components/Filter/Filter';
 import Products from '../../components/Products/Products';
 import Footer from '../../components/Footer/Footer';
 
-const ProductsPage = () => {
+const ProductsPage = ({ isOnSale }) => {
   return (
     <>
       <Header />
       <div className='container'>
-        <Products />
+        <Products isOnSale={isOnSale} />
       </div>
 
       <Footer />

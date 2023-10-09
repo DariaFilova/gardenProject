@@ -8,7 +8,7 @@ import Filter from '../Filter/Filter';
 const Products = ({ isOnSale, limit }) => {
   const products = useSelector((state) => state.products.products);
   const error = useSelector((state) => state.products.error);
-  const loading = useSelector((state) => state.products.loading);
+  const status = useSelector((state) => state.products.status);
 
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
@@ -40,11 +40,14 @@ const Products = ({ isOnSale, limit }) => {
     return meetsMinPrice && meetsMaxPrice && meetsOnSale;
   });
 
-  console.log(productsToDisplay, 'foo');
-
-  if (loading) {
+  if (status === 'loading') {
     return <Loader />;
   }
+
+  if (error) {
+    return <div>error</div>;
+  }
+
   return (
     <>
       <Filter

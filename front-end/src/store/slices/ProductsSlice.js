@@ -37,6 +37,7 @@ export const productsSlice = createSlice({
     products: [],
     status: null,
     error: null,
+    // currentSingleProduct: {},
     productError: null,
     productStatus: null,
   },
@@ -81,7 +82,7 @@ export const productsSlice = createSlice({
         state.productStatus = 'loading';
       })
       .addCase(getSingleProduct.fulfilled, (state, action) => {
-        state.currentSingleProduct = action.payload;
+        state.currentSingleProduct = action.payload[0];
         state.productStatus = 'fulfilled';
       })
       .addCase(getSingleProduct.rejected, (state, action) => {

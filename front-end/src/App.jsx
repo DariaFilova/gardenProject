@@ -9,6 +9,7 @@ import ProductsPage from './pages/ProductsPage/ProductsPage';
 import SingleProductPage from './pages/SingleProductPage/SingleProductPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import { getCategories } from './store/slices/CategoriesSlice';
+import CartPage from './pages/CartPage/CartPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ function App() {
   useEffect(() => {
     dispatch(getProducts());
     dispatch(getCategories());
-  });
+  }, []);
   return (
     <>
       <div className='App'></div>
@@ -27,7 +28,9 @@ function App() {
         {/* <Route path='/products' element={<div>Products</div>} /> */}
         {/* <Route path='/products/:productId' element={<SingleProduct />} /> */}
 
-        <Route path='/products' element={<ProductsPage />} />
+        <Route path='/products' element={<ProductsPage isOnSale={false} />} />
+        <Route path='/sale' element={<ProductsPage isOnSale={true} />} />
+        <Route path='/cart' element={<CartPage />} />
         <Route path='/categories' element={<CategoriesPage />} />
         <Route path='/categories/:id' element={<ProductsPage />} />
         <Route path='/products/:productId' element={<SingleProductPage />} />

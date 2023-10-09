@@ -12,6 +12,10 @@ const Product = ({ product }) => {
 
   const serverDomain = 'http://localhost:3333';
   const productLink = `/products/${id}`;
+
+  // useEffect(() => {
+  //   console.log(productLink);
+  // }, []);
   // const { SingleProductId } = useParams();
   // const SingleProduct = useSelector(
   //   (state) => state.SingleProduct.currentSingleProduct
@@ -31,23 +35,29 @@ const Product = ({ product }) => {
 
   // getSingleProduct(id)
 
+  const handleAddToCartClick = (e) => {
+    e.stopPropagation(); // Stop the click event from propagating to the parent Link
+    dispatch(addProductToCart(product));
+  };
+
   return (
-    <div className='product'>
+    <Link to={productLink} className='product'>
       <div className='product__image'>
         <img src={serverDomain + image} alt='' />
-        <button onClick={() => dispatch(addProductToCart(product))}>
-          Add to cart
-        </button>
+        <button onClick={handleAddToCartClick}>Add to cart</button>
       </div>
       <div className='product__price_info'>
-        {discont_price && (
-          <div className='product__discount_price'>{discont_price} &euro;</div>
-        )}
-        <div className='product__price'>{price} &euro;</div>
+        <div className='product__current-price'>
+          {discont_price ? discont_price : price}$
+        </div>
+
+        <div className='product__old-price'>
+          {discont_price ? price + '$' : null}{' '}
+        </div>
       </div>
       <div className='product__title'>{title}</div>
-      <Link to={productLink}>More info</Link>
-    </div>
+      {/* <Link to={productLink}>More info</Link> */}
+    </Link>
   );
 };
 

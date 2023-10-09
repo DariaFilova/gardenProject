@@ -14,8 +14,6 @@ const Filter = (props) => {
     onApplyFilters,
   } = props;
 
-  const filterProducts = () => {};
-
   return (
     <div className='filter'>
       {/* Filter inputs */}

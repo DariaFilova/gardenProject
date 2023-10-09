@@ -21,7 +21,9 @@ const Header = () => {
         <div className='header__right'>
           <Navigation />
           <div className='header__cart'>
-            <img src={shoppingBagIcon} alt='' />
+            <Link to='/cart'>
+              <img src={shoppingBagIcon} alt='' />
+            </Link>
           </div>
         </div>
       </div>
