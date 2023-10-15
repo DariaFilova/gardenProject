@@ -2,6 +2,7 @@ import React from 'react';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import './Footer.scss';
+import Map from '../../features/Map/Map';
 
 const Footer = () => {
   return (
@@ -25,15 +26,19 @@ const Footer = () => {
         <div className='footer__address'>
           <div className='title'>Address </div>
           <div className='footer__address_street'>
-            Frankfurt am Main <br />
-            Hanauer Landstrasse 25
+            Linkstraße 2, 8 OG, 10785,
+            <br />
+            Berlin, Deutschland
           </div>
           <div className='footer__address_working_hours'>
             <p className='footer__address_working_hours_title'>Working hours</p>
-            <p className='footer__address_working_hours_subtitle'>All day</p>
+            <p className='footer__address_working_hours_subtitle'>
+              24 hours a day
+            </p>
           </div>
         </div>
       </div>
+      <Map />
     </div>
   );
 };

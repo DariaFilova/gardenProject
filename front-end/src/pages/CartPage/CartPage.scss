@@ -1,0 +1,35 @@
+.cartPage {
+  padding: var(--component-padding);
+  &__title {
+    margin-bottom: 20px;
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    a {
+      font-weight: var(--font-weight-medium);
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+
+    gap: 20px;
+  }
+  &__empty {
+    padding: var(--component-padding);
+    text-align: center;
+    h2 {
+      margin-bottom: 40px;
+    }
+    a {
+      font-weight: var(--font-weight-medium);
+      font-size: 20px;
+    }
+  }
+}
+

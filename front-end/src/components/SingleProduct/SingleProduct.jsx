@@ -6,14 +6,13 @@ import Loader from '../Loader/Loader';
 import './SingleProduct.scss';
 import { addProductToCart } from '../../store/slices/CartSlice';
 
-const SingleProduct = () => {
+const SingleProduct = ({ setShowModal }) => {
   const { productId } = useParams();
 
   const dispatch = useDispatch();
   const serverDomain = 'http://localhost:3333';
 
   useEffect(() => {
-    console.log(productId, 'id');
     dispatch(getSingleProduct(productId));
   }, [productId, dispatch]);
 
@@ -21,10 +20,19 @@ const SingleProduct = () => {
     (state) => state.products.currentSingleProduct
   );
 
-  const { id, title, price, discont_price, image, categoryId } =
-    singleProduct || {};
+  const { title, price, discont_price, image } = singleProduct || {};
   const error = useSelector((state) => state.products.productError);
   const status = useSelector((state) => state.products.productStatus);
+
+  const calculateDiscount = () => {
+    let discount = Math.round(((price - discont_price) / price) * 100);
+    return discount;
+  };
+
+  const handleAddToCart = () => {
+    dispatch(addProductToCart(singleProduct));
+    setShowModal(true);
+  };
 
   if (status === 'loading') {
     return <Loader />;
@@ -37,11 +45,6 @@ const SingleProduct = () => {
   return (
     <div className='singleProduct'>
       <div className='singleProduct__wrapper container'>
-        {/* <h3>{singleProduct.title}</h3>
-        <div className='singleProduct__image'>
-          <img src={'http://localhost:3333/' + singleProduct.img} alt='' />
-        </div>
-        <div className='singleProduct__info'>{singleProduct.description}</div> */}
         {singleProduct && (
           <>
             <h3 className='singleProduct__title'>{title}</h3>
@@ -57,13 +60,14 @@ const SingleProduct = () => {
                   <div className='singleProduct__old-price'>
                     {discont_price ? price + '$' : null}
                   </div>
+                  {discont_price && (
+                    <div className='singleProduct__discount'>
+                      -{calculateDiscount()}%
+                    </div>
+                  )}
                 </div>
 
-                <button
-                  onClick={() => dispatch(addProductToCart(singleProduct))}
-                >
-                  To cart
-                </button>
+                <button onClick={handleAddToCart}>To cart</button>
 
                 <div className='singleProduct__divider'></div>
 
@@ -79,13 +83,6 @@ const SingleProduct = () => {
             </div>
           </>
         )}
-        {/* <h3>{singleProduct.title}</h3>
-        <div className='singleProduct__image'>
-          <img src={singleProduct.image} alt={singleProduct.description} />
-        </div>
-        <div className='singleProduct__info'>
-  
-        </div> */}
       </div>
     </div>
   );

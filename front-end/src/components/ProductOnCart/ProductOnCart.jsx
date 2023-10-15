@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './ProductOnCart.scss';
-import { removeProductFromCart } from '../../store/slices/CartSlice';
+import {
+  addProductToCart,
+  removeAllProductsWithTheSameIdFromCart,
+  removeProductFromCart,
+} from '../../store/slices/CartSlice';
 import { useDispatch } from 'react-redux';
+import CloseIcon from '@mui/icons-material/Close';
 
-const ProductOnCart = ({ product }) => {
+const ProductOnCart = ({ amount, product }) => {
   const { id, title, price, discont_price, image } = product || {};
 
   const dispatch = useDispatch();
-
-  const [amount, setAmount] = useState(1);
 
   const serverDomain = 'http://localhost:3333';
   return (
@@ -20,26 +23,30 @@ const ProductOnCart = ({ product }) => {
       <div className='productOnCart__info'>
         <p>{title}</p>
         <div className='productOnCart__amount'>
-          <button>-</button>
+          <button
+            disabled={amount === 1}
+            onClick={() => dispatch(removeProductFromCart(id))}
+          >
+            -
+          </button>
           <span>{amount}</span>
-          <button>+</button>
+          <button onClick={() => dispatch(addProductToCart(product))}>+</button>
         </div>
       </div>
 
       <div className='productOnCart__price'>
-        <div className='productOnCart__current-price'>
+        <div className='productOnCart__price_current'>
           {discont_price ? discont_price : price}$
         </div>
-        <div className='productOnCart__old-price'>
+        <div className='productOnCart__price_old'>
           {discont_price ? price + '$' : null}
         </div>
       </div>
-
       <div
         className='productOnCart__remove'
-        onClick={() => dispatch(removeProductFromCart(id))}
+        onClick={() => dispatch(removeAllProductsWithTheSameIdFromCart(id))}
       >
-        X
+        <CloseIcon />
       </div>
     </div>
   );

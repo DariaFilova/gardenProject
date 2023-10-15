@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../../components/Header/Header';
-import Product from '../../components/Product/Product';
+
 import Footer from '../../components/Footer/Footer';
 import SingleProduct from '../../components/SingleProduct/SingleProduct';
+import Modal from '../../features/Modal/Modal';
 
 const SingleProductPage = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <>
       <Header />
-      <SingleProduct />
+      <SingleProduct setShowModal={setShowModal} />
       <Footer />
+      {showModal ? (
+        <Modal onClose={() => closeModal()} text='Product added to the cart' />
+      ) : null}
     </>
   );
 };

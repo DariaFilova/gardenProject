@@ -24,15 +24,12 @@ function App() {
       <div className='App'></div>
       <Routes>
         <Route path='/' element={<MainPage />} />
-        {/* Unclear, there is no all products in figma maket */}
-        {/* <Route path='/products' element={<div>Products</div>} /> */}
-        {/* <Route path='/products/:productId' element={<SingleProduct />} /> */}
 
         <Route path='/products' element={<ProductsPage isOnSale={false} />} />
         <Route path='/sale' element={<ProductsPage isOnSale={true} />} />
         <Route path='/cart' element={<CartPage />} />
         <Route path='/categories' element={<CategoriesPage />} />
-        <Route path='/categories/:id' element={<ProductsPage />} />
+        <Route path='/categories/:categoryId' element={<ProductsPage />} />
         <Route path='/products/:productId' element={<SingleProductPage />} />
         <Route path='/*' element={<NotFoundPage />} />
       </Routes>

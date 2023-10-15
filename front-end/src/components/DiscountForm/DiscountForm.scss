@@ -31,6 +31,7 @@
       }
 
       button {
+        cursor: pointer;
         padding: 20px 95px;
         background: transparent;
         border: 2px solid white;
@@ -42,5 +43,14 @@
       }
     }
   }
+}
+
+.red-border {
+  border: 2px solid var(--color-error) !important;
+}
+
+.error {
+  font-weight: var(--font-weight-semi-bold);
+  color: rgb(251, 196, 196);
 }
 

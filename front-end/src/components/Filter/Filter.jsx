@@ -3,48 +3,62 @@ import './Filter.scss';
 
 const Filter = (props) => {
   const {
-    minPrice,
-    maxPrice,
     showOnSale,
-    sortBy,
-    onMinPriceChange,
-    onMaxPriceChange,
-    onShowOnSaleChange,
-    onSortByChange,
-    onApplyFilters,
+
+    isOnSale,
+    setMinPrice,
+    setMaxPrice,
+    setShowOnSale,
+    setSortByChange,
   } = props;
 
   return (
     <div className='filter'>
-      {/* Filter inputs */}
-      <input
-        type='text'
-        placeholder='Min Price'
-        value={minPrice}
-        onChange={(e) => onMinPriceChange(e.target.value)}
-      />
-      <input
-        type='text'
-        placeholder='Max Price'
-        value={maxPrice}
-        onChange={(e) => onMaxPriceChange(e.target.value)}
-      />
-      <label>
-        <input
-          type='checkbox'
-          checked={showOnSale}
-          onChange={() => onShowOnSaleChange(!showOnSale)}
-        />
-        Show On Sale
-      </label>
-      <select value={sortBy} onChange={(e) => onSortByChange(e.target.value)}>
-        <option value='default'>Default</option>
-        <option value='lowestPrice'>Lowest Price</option>
-        <option value='highestPrice'>Highest Price</option>
-      </select>
+      <div className='filter__price_block'>
+        <label>
+          Price
+          <input
+            className='filter__price'
+            type='text'
+            placeholder='Min Price'
+            onChange={(e) => setMinPrice(e.target.value)}
+          />
+          <input
+            className='filter__price'
+            type='text'
+            placeholder='Max Price'
+            onChange={(e) => setMaxPrice(e.target.value)}
+          />
+        </label>
+      </div>
 
-      {/* Apply button */}
-      <button onClick={onApplyFilters}>Apply Filters</button>
+      {isOnSale ? null : (
+        <div className='filter__sale_block'>
+          <label>
+            Discounted items
+            <input
+              className='filter__sale'
+              type='checkbox'
+              checked={showOnSale}
+              onChange={() => setShowOnSale(!showOnSale)}
+            />
+          </label>
+        </div>
+      )}
+
+      <div className='filter__sorted_block'>
+        <label>
+          Sorted
+          <select
+            className='filter__sorted'
+            onChange={(e) => setSortByChange(e.target.value)}
+          >
+            <option value='default'>Default</option>
+            <option value='lowestPrice'>Price low to high</option>
+            <option value='highestPrice'>Price high to low</option>
+          </select>
+        </label>
+      </div>
     </div>
   );
 };

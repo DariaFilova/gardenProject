@@ -1,7 +1,8 @@
 .footer {
-  padding: var(--component-padding);
+  padding-top: var(--component-padding);
   &__wrapper {
     display: flex;
+
     justify-content: space-between;
   }
 
@@ -12,7 +13,7 @@
   }
 
   &__number {
-    font-size: 70px;
+    font-size: 60px;
   }
   &__social {
     padding-top: 30px;
@@ -43,7 +44,7 @@
         padding-bottom: 2px;
       }
       &_subtitle {
-        font-size: 24px;
+        font-size: 22px;
         font-weight: var(--font-weight-semi-bold);
       }
     }

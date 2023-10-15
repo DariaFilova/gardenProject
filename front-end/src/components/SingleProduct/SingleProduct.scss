@@ -67,5 +67,10 @@
       line-height: 26px;
     }
   }
+  &__discount {
+    font-size: 20px;
+    font-weight: var(--font-weight-semi-bold);
+    color: var(--color-text-pink);
+  }
 }
 

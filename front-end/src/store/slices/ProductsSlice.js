@@ -8,7 +8,7 @@ export const getProducts = createAsyncThunk(
     try {
       const response = await axios.get('http://localhost:3333/products/all');
 
-      const data = response.data;
+      const data = await response.data;
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -37,7 +37,6 @@ export const productsSlice = createSlice({
     products: [],
     status: null,
     error: null,
-    // currentSingleProduct: {},
     productError: null,
     productStatus: null,
   },
