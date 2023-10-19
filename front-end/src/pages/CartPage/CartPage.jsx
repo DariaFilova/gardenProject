@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+import Footer from '../../Layout/Footer/Footer';
+import Header from '../../Layout/Header/Header';
 import OrderDetails from '../../components/OrderDetails/OrderDetails';
 import CartProducts from '../../components/CartProducts/CartProducts';
-import './CartPage.scss';
-import { useSelector } from 'react-redux';
 import Modal from '../../features/Modal/Modal';
-import { Link } from 'react-router-dom';
+
+import './CartPage.scss';
 
 const CartPage = () => {
   const amountOfProductsInCart = useSelector((state) => state.cart.cart.length);

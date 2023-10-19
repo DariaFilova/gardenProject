@@ -1,7 +1,10 @@
 import React from 'react';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+
+import Footer from '../../Layout/Footer/Footer';
+import Header from '../../Layout/Header/Header';
+
 import NotFoundImage from '../../assets/images/not-found.svg';
+
 import './NotFoundPage.scss';
 
 const NotFoundPage = () => {

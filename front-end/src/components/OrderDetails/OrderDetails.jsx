@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import './OrderDetails.scss';
+import axios from 'axios';
 import { useForm, Controller } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
 import { clearCart } from '../../store/slices/CartSlice';
+
+import './OrderDetails.scss';
 
 const OrderDetails = ({ setShowModal }) => {
   const {
@@ -13,12 +14,11 @@ const OrderDetails = ({ setShowModal }) => {
     setValue,
   } = useForm();
 
-  const dispatch = useDispatch();
-  const [phone, setPhone] = useState('');
-
   const apiUrl = 'http://localhost:3333/order/send';
 
+  const dispatch = useDispatch();
   const productsInCart = useSelector((state) => state.cart.cart);
+  const [phone, setPhone] = useState('');
 
   const total = productsInCart.reduce((acc, product) => {
     const productPrice =
@@ -27,7 +27,6 @@ const OrderDetails = ({ setShowModal }) => {
   }, 0);
 
   const handlePhoneChange = (value) => {
-    console.log(value, 'change');
     setPhone(value);
   };
 

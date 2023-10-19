@@ -1,10 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// Load cart from local storage if available
 const initialCart = JSON.parse(localStorage.getItem('cart')) || [];
 
 export const cartSlice = createSlice({
-  name: 'cart', //name of the slice
+  name: 'cart',
   initialState: {
     cart: initialCart,
     status: null,
@@ -13,7 +12,7 @@ export const cartSlice = createSlice({
   reducers: {
     addProductToCart(state, action) {
       const updatedCart = [...state.cart, action.payload];
-      localStorage.setItem('cart', JSON.stringify(updatedCart)); // Update local storage
+      localStorage.setItem('cart', JSON.stringify(updatedCart));
       return {
         ...state,
         cart: updatedCart,
@@ -25,26 +24,25 @@ export const cartSlice = createSlice({
       );
 
       if (index !== -1) {
-        // Check if the element was found
         const updatedCart = [
           ...state.cart.slice(0, index),
           ...state.cart.slice(index + 1),
         ];
-        localStorage.setItem('cart', JSON.stringify(updatedCart)); // Update local storage
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
         return {
           ...state,
           cart: updatedCart,
         };
       }
 
-      return state; // If the element wasn't found, return the state without changes
+      return state;
     },
 
     removeAllProductsWithTheSameIdFromCart(state, action) {
       const updatedCart = state.cart.filter(
         (product) => product.id !== action.payload
       );
-      localStorage.setItem('cart', JSON.stringify(updatedCart)); // Update local storage
+      localStorage.setItem('cart', JSON.stringify(updatedCart));
       return {
         ...state,
         cart: updatedCart,
@@ -52,7 +50,7 @@ export const cartSlice = createSlice({
     },
 
     clearCart(state) {
-      localStorage.removeItem('cart'); // Clear local storage
+      localStorage.removeItem('cart');
       return {
         ...state,
         cart: [],

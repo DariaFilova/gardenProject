@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-import './Product.scss';
 import { useDispatch } from 'react-redux';
 import { addProductToCart } from '../../store/slices/CartSlice';
 
+import './Product.scss';
+
 const Product = ({ product, setShowModal }) => {
-  const { id, title, price, discont_price, image, categoryId } = product || {};
+  const { id, title, price, discont_price, image } = product || {};
 
   const dispatch = useDispatch();
 
@@ -15,7 +15,7 @@ const Product = ({ product, setShowModal }) => {
 
   const handleAddToCartClick = (e) => {
     e.preventDefault();
-    e.stopPropagation(); // Stop the click event from propagating to the parent Link
+    e.stopPropagation();
     dispatch(addProductToCart(product));
     setShowModal(true);
   };

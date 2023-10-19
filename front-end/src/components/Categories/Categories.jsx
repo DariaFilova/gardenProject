@@ -1,13 +1,14 @@
 import React from 'react';
-import './Categories.scss';
 import { useSelector } from 'react-redux';
-import Loader from '../Loader/Loader';
-import CategoryItem from '../CategoryItem/CategoryItem';
 import { Link } from 'react-router-dom';
+
+import Loader from '../../features/Loader/Loader';
+import CategoryItem from '../CategoryItem/CategoryItem';
+
+import './Categories.scss';
 
 const Categories = ({ numberOfCategoriesToDisplay }) => {
   const categories = useSelector((state) => state.categories.categories);
-
   const status = useSelector((state) => state.categories.status);
   const error = useSelector((state) => state.categories.error);
 

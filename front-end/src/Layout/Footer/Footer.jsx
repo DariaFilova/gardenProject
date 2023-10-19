@@ -1,8 +1,10 @@
 import React from 'react';
+
+import Map from '../../features/Map/Map';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
+
 import './Footer.scss';
-import Map from '../../features/Map/Map';
 
 const Footer = () => {
   return (

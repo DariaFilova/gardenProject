@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Loader from '../Loader/Loader';
+
 import Product from '../Product/Product';
 import './Products.scss';
-import Filter from '../Filter/Filter';
+
 import Modal from '../../features/Modal/Modal';
 import { useParams } from 'react-router-dom';
 import { getCategoryById } from '../../store/slices/CategoriesSlice';
+import Loader from '../../features/Loader/Loader';
+import Filter from '../../features/Filter/Filter';
 
 const Products = ({ isOnSale = false, limit = 1000000 }) => {
   const products = useSelector((state) => state.products.products);
   const error = useSelector((state) => state.products.error);
   const status = useSelector((state) => state.products.status);
+
+  const { categoryId } = useParams();
+  const dispatch = useDispatch();
 
   const [showModal, setShowModal] = useState(false);
   const [minPrice, setMinPrice] = useState(0);
@@ -19,11 +24,8 @@ const Products = ({ isOnSale = false, limit = 1000000 }) => {
   const [showOnSale, setShowOnSale] = useState(false);
   const [productsToDisplay, setProductsToDisplay] = useState([]);
   const [sortByChange, setSortByChange] = useState('default');
-  const { categoryId } = useParams();
-  const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(categoryId, 'id');
     let filteredProducts = getProductsToDisplay();
 
     if (categoryId) {
@@ -56,26 +58,25 @@ const Products = ({ isOnSale = false, limit = 1000000 }) => {
     });
 
     if (categoryId) {
-      result = result.filter((item) => item.categoryId == categoryId);
+      result = result.filter((item) => item.categoryId === +categoryId);
     }
 
     if (limit) {
       result = result.slice(0, limit);
     }
 
-    if (sortByChange == 'default') {
-      result = result;
+    switch (sortByChange) {
+      case 'lowestPrice':
+        result.sort((a, b) => a.price - b.price);
+        break;
+      case 'highestPrice':
+        result.sort((a, b) => b.price - a.price);
+        break;
+
+      default:
     }
 
-    if (sortByChange == 'lowestPrice') {
-      result = result.sort((a, b) => a.price - b.price);
-    }
-
-    if (sortByChange == 'highestPrice') {
-      result = result.sort((a, b) => b.price - a.price);
-    }
-
-    return result == undefined ? [] : result;
+    return result === undefined ? [] : result;
   };
 
   if (status === 'loading') {

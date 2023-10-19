@@ -1,7 +1,9 @@
 import React from 'react';
-import './Promo.scss';
-import promoImage from '../../assets/images/promo-image.png';
 import { Link } from 'react-router-dom';
+
+import promoImage from '../../assets/images/promo-image.png';
+
+import './Promo.scss';
 
 const Promo = () => {
   return (

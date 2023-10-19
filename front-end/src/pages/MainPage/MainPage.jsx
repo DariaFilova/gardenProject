@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import Header from '../../components/Header/Header';
-import './MainPage.scss';
+
+import Header from '../../Layout/Header/Header';
 import Promo from '../../components/Promo/Promo';
 import Categories from '../../components/Categories/Categories';
 import DiscountForm from '../../components/DiscountForm/DiscountForm';
 import ProductsOnSale from '../../components/ProductsOnSale/ProductsOnSale';
-import Footer from '../../components/Footer/Footer';
 import Modal from '../../features/Modal/Modal';
+import Footer from '../../Layout/Footer/Footer';
+
+import './MainPage.scss';
 
 const MainPage = () => {
   const [showModal, setShowModal] = useState(false);

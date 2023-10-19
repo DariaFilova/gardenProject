@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './Map.scss';
 
 const Map = () => {
@@ -12,6 +13,7 @@ const Map = () => {
         allowFullScreen
         loading='lazy'
         referrerPolicy='no-referrer-when-downgrade'
+        title='Google Maps Location'
       ></iframe>
     </div>
   );

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import './DiscountForm.scss';
-import discountImage from '../../assets/images/discount-image.png';
 import { Controller, useForm } from 'react-hook-form';
-import './DiscountForm.scss';
 import axios from 'axios';
+
+import discountImage from '../../assets/images/discount-image.png';
+
+import './DiscountForm.scss';
 
 const DiscountForm = ({ setShowModal }) => {
   const {
@@ -21,7 +22,6 @@ const DiscountForm = ({ setShowModal }) => {
       .post(apiUrl, phone)
       .then((response) => {
         console.log('POST request successful:', response.data);
-        // setShowModal(true);
         setValue('phone', '');
         setShowModal(true);
       })

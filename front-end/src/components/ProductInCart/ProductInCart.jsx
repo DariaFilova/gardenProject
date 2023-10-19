@@ -1,19 +1,22 @@
 import React from 'react';
-import './ProductOnCart.scss';
+import { useDispatch } from 'react-redux';
+
 import {
   addProductToCart,
   removeAllProductsWithTheSameIdFromCart,
   removeProductFromCart,
 } from '../../store/slices/CartSlice';
-import { useDispatch } from 'react-redux';
 import CloseIcon from '@mui/icons-material/Close';
 
-const ProductOnCart = ({ amount, product }) => {
+import './ProductInCart.scss';
+
+const ProductInCart = ({ amount, product }) => {
   const { id, title, price, discont_price, image } = product || {};
+
+  const serverDomain = 'http://localhost:3333';
 
   const dispatch = useDispatch();
 
-  const serverDomain = 'http://localhost:3333';
   return (
     <div className='productOnCart'>
       <div className='productOnCart__image'>
@@ -52,5 +55,5 @@ const ProductOnCart = ({ amount, product }) => {
   );
 };
 
-export default ProductOnCart;
+export default ProductInCart;
 

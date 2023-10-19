@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
-import Header from '../../components/Header/Header';
+import React from 'react';
+
 import Categories from '../../components/Categories/Categories';
-import Footer from '../../components/Footer/Footer';
+import Footer from '../../Layout/Footer/Footer';
+import Header from '../../Layout/Header/Header';
 
 const CategoriesPage = () => {
   return (

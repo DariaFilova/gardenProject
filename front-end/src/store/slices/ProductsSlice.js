@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const getProducts = createAsyncThunk(
   'products/getProducts',
-  // if we will pass some data to this function we will use smth instead of _ in first argument
+
   async (_, thunkAPI) => {
     try {
       const response = await axios.get('http://localhost:3333/products/all');
@@ -32,7 +32,7 @@ export const getSingleProduct = createAsyncThunk(
 );
 
 export const productsSlice = createSlice({
-  name: 'products', //name of the slice
+  name: 'products',
   initialState: {
     products: [],
     status: null,
@@ -41,11 +41,8 @@ export const productsSlice = createSlice({
     productStatus: null,
   },
   reducers: {
-    //pass all reducers we will have as objects
     addProduct(state, action) {
-      state.products.push(action.payload); //or
-      // If we want to add an object. action.payload is smth that we pass to this action as an argument
-      // state.products.push({id: Date.now(), title: action.payload, onSale: false})
+      state.products.push(action.payload);
     },
     removeProduct(state, action) {
       state.products = state.products.filter(
@@ -60,15 +57,12 @@ export const productsSlice = createSlice({
     },
   },
 
-  //extra reduxcer is needed for side effects of async methods, e.g getProducts
-  // builder is the object that provides all methoda that we will use for creating all extrareducers
   extraReducers: (builder) => {
-    // if this request is pending we add loading status to our state
     builder
       .addCase(getProducts.pending, (state) => {
         state.status = 'loading';
       })
-      // if this request is fulfilled we add products to our state and change state status to fullfilled
+
       .addCase(getProducts.fulfilled, (state, action) => {
         state.products = action.payload;
         state.status = 'fulfilled';

@@ -2,15 +2,18 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSingleProduct } from '../../store/slices/ProductsSlice';
 import { useParams } from 'react-router-dom';
-import Loader from '../Loader/Loader';
+import Loader from '../../features/Loader/Loader';
 import './SingleProduct.scss';
 import { addProductToCart } from '../../store/slices/CartSlice';
 
 const SingleProduct = ({ setShowModal }) => {
-  const { productId } = useParams();
-
-  const dispatch = useDispatch();
   const serverDomain = 'http://localhost:3333';
+
+  const { productId } = useParams();
+  const dispatch = useDispatch();
+
+  const error = useSelector((state) => state.products.productError);
+  const status = useSelector((state) => state.products.productStatus);
 
   useEffect(() => {
     dispatch(getSingleProduct(productId));
@@ -21,8 +24,6 @@ const SingleProduct = ({ setShowModal }) => {
   );
 
   const { title, price, discont_price, image } = singleProduct || {};
-  const error = useSelector((state) => state.products.productError);
-  const status = useSelector((state) => state.products.productStatus);
 
   const calculateDiscount = () => {
     let discount = Math.round(((price - discont_price) / price) * 100);

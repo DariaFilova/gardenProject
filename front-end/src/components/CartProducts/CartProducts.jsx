@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import './CartProducts.scss';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import ProductOnCart from '../ProductOnCart/ProductOnCart';
+import ProductInCart from '../ProductInCart/ProductInCart';
+
+import './CartProducts.scss';
 
 const CartProducts = () => {
   const productsInCart = useSelector((state) => state.cart.cart);
@@ -12,13 +13,11 @@ const CartProducts = () => {
     setProductsGroupedById(Object.groupBy(productsInCart, ({ id }) => id));
   }, [productsInCart]);
 
-  console.log(productsInCart, 'productsInCart');
-
   return (
     <div className='cartProducts'>
       <div className='cartProducts__wrapper'>
         {Object.keys(productsGroupedById).map((key, index) => (
-          <ProductOnCart
+          <ProductInCart
             key={productsGroupedById[key][0].id + Math.random()}
             product={productsGroupedById[key][0]}
             amount={productsGroupedById[key].length}

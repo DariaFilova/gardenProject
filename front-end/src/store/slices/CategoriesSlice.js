@@ -23,7 +23,6 @@ export const getCategoryById = createAsyncThunk(
         `http://localhost:3333/categories/${categoryId}`
       );
 
-      console.log(response);
       const data = await response.data.category;
 
       return data;
@@ -34,7 +33,7 @@ export const getCategoryById = createAsyncThunk(
 );
 
 export const categoriesSlice = createSlice({
-  name: 'categories', //name of the slice
+  name: 'categories',
   initialState: {
     categories: [],
     currentCategory: {},
@@ -46,7 +45,6 @@ export const categoriesSlice = createSlice({
   reducers: {},
 
   extraReducers: (builder) => {
-    // if this request is pending we add loading status to our state
     builder
       .addCase(getCategories.pending, (state) => {
         state.status = 'loading';
