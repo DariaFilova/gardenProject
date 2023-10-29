@@ -1,0 +1,15 @@
+@media (max-width: 991.98px) {
+  .filter {
+    padding: 50px 10px;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .filter {
+    justify-content: center;
+    gap: 25px;
+  }
+}
+

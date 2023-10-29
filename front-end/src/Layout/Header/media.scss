@@ -1,0 +1,35 @@
+@media (max-width: 767.98px) {
+  .header {
+    padding: 20px 10px;
+    &__wrapper {
+      align-items: center;
+    }
+    &__hamburger {
+      display: block;
+    }
+
+    nav {
+      display: none;
+    }
+    &__right {
+      order: 1;
+    }
+    &__hamburger {
+      order: 3;
+    }
+
+    &__left {
+      order: 2;
+      gap: 0;
+      .logo {
+        img {
+          width: 60px;
+        }
+      }
+      button {
+        display: none;
+      }
+    }
+  }
+}
+

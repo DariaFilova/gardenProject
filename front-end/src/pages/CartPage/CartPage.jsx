@@ -9,6 +9,7 @@ import CartProducts from '../../components/CartProducts/CartProducts';
 import Modal from '../../features/Modal/Modal';
 
 import './CartPage.scss';
+import './media.scss';
 
 const CartPage = () => {
   const amountOfProductsInCart = useSelector((state) => state.cart.cart.length);
@@ -31,7 +32,7 @@ const CartPage = () => {
           <>
             <div className='cartPage__title'>
               <h2>Shopping cart</h2>
-              <Link to='/'>Back to the store {`>`} </Link>
+              <Link to='/products'>Back to the store {`>`} </Link>
             </div>
             <div className='cartPage__content'>
               <CartProducts />

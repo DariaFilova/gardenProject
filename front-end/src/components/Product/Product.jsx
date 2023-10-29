@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { addProductToCart } from '../../store/slices/CartSlice';
 
 import './Product.scss';
+import './media.scss';
 
 const Product = ({ product, setShowModal }) => {
   const { id, title, price, discont_price, image } = product || {};

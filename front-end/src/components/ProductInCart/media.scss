@@ -1,0 +1,40 @@
+@media (max-width: 1200px) {
+  .productOnCart {
+    &__price {
+      gap: 20px;
+      &_current {
+        font-size: 32px;
+      }
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .productOnCart {
+    &__price {
+      align-self: center;
+      flex-direction: column;
+      width: 30px;
+      &_current {
+        font-size: 19px;
+      }
+      &_old {
+        font-size: 17px;
+      }
+    }
+
+    &__info {
+      width: 170px;
+      margin-right: unset;
+      p {
+        font-size: 16px;
+      }
+    }
+
+    &__amount {
+      width: 85px;
+      margin-top: 20px;
+    }
+  }
+}
+

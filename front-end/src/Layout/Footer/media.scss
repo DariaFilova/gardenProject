@@ -1,0 +1,28 @@
+@media (max-width: 575.98px) {
+  .footer {
+    &__wrapper {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+    &__contacts {
+      text-align: center;
+    }
+    &__number {
+      font-size: 38px;
+    }
+
+    &__social {
+      justify-content: center;
+    }
+
+    &__address {
+      text-align: center;
+      &_street {
+        font-size: 30px;
+        line-height: 46px;
+      }
+    }
+  }
+}
+

@@ -5,6 +5,7 @@ import axios from 'axios';
 import discountImage from '../../assets/images/discount-image.png';
 
 import './DiscountForm.scss';
+import './media.scss';
 
 const DiscountForm = ({ setShowModal }) => {
   const {

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import promoImage from '../../assets/images/promo-image.png';
 
 import './Promo.scss';
+import './media.scss';
 
 const Promo = () => {
   return (

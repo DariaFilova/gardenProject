@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import './Navigation.scss';
+import './media.scss';
 
 const Navigation = () => {
   return (
@@ -9,13 +10,13 @@ const Navigation = () => {
       <nav className='nav'>
         <ul>
           <li>
-            <Link to='/'>Main Page</Link>
+            <NavLink to='/'>Main Page</NavLink>
           </li>
           <li>
-            <Link to='/products'>All products</Link>
+            <NavLink to='/products'>All products</NavLink>
           </li>
           <li>
-            <Link to='/sale'>All Sales</Link>
+            <NavLink to='/sale'>All Sales</NavLink>
           </li>
         </ul>
       </nav>

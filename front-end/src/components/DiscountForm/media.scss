@@ -1,0 +1,39 @@
+@media (max-width: 576.98px) {
+  .discountForm {
+    &__content {
+      justify-content: center;
+      form {
+        align-items: center;
+        input {
+          width: 90%;
+        }
+        button {
+          width: 90%;
+          padding: 20px 65px;
+          font-size: 20px;
+        }
+        label {
+          span {
+            font-size: 60px;
+          }
+          font-size: 35px;
+          font-weight: var(--font-weight-bold);
+          color: white;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 991.98px) {
+  .discountForm {
+    &__image {
+      display: none;
+    }
+    &__wrapper {
+      justify-content: center;
+    }
+  }
+}
+

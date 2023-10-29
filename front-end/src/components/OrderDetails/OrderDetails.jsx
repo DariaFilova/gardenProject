@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { clearCart } from '../../store/slices/CartSlice';
 
 import './OrderDetails.scss';
+import './media.scss';
 
 const OrderDetails = ({ setShowModal }) => {
   const {

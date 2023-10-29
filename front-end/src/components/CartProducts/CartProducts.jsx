@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import ProductInCart from '../ProductInCart/ProductInCart';
 
 import './CartProducts.scss';
+import './media.scss';
 
 const CartProducts = () => {
   const productsInCart = useSelector((state) => state.cart.cart);

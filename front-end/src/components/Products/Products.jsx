@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import Product from '../Product/Product';
-import './Products.scss';
-
 import Modal from '../../features/Modal/Modal';
-import { useParams } from 'react-router-dom';
 import { getCategoryById } from '../../store/slices/CategoriesSlice';
 import Loader from '../../features/Loader/Loader';
 import Filter from '../../features/Filter/Filter';
 
-const Products = ({ isOnSale = false, limit = 1000000 }) => {
+import './Products.scss';
+import './media.scss';
+
+const Products = ({ isOnSale = false, limit = 1000000, hideTitle = false }) => {
   const products = useSelector((state) => state.products.products);
   const error = useSelector((state) => state.products.error);
   const status = useSelector((state) => state.products.status);
@@ -27,6 +28,9 @@ const Products = ({ isOnSale = false, limit = 1000000 }) => {
 
   useEffect(() => {
     let filteredProducts = getProductsToDisplay();
+
+    console.log(minPrice, 'foo');
+    console.log(maxPrice, 'foo');
 
     if (categoryId) {
       dispatch(getCategoryById(categoryId));
@@ -89,11 +93,15 @@ const Products = ({ isOnSale = false, limit = 1000000 }) => {
 
   return (
     <>
-      {!isOnSale && !categoryId ? (
+      {!isOnSale && !categoryId && !hideTitle ? (
         <h3 className='products__title'>All Products</h3>
       ) : null}
-      {isOnSale ? <h3 className='products__title'>Products on Sale</h3> : null}
-      {categoryId ? <h3 className='products__title'>{categoryName}</h3> : null}
+      {isOnSale && !hideTitle ? (
+        <h3 className='products__title'>Products on Sale</h3>
+      ) : null}
+      {categoryId && !hideTitle ? (
+        <h3 className='products__title'>{categoryName}</h3>
+      ) : null}
       {limit === 4 ? null : (
         <Filter
           minPrice={minPrice}

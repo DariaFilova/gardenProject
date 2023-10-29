@@ -11,40 +11,43 @@
   margin: 0 auto;
 }
 
-/* Extra small screens (up to 576px) */
-@media (max-width: 575.98px) {
+// X-Small devices (portrait phones, greater than or equal to 576px)
+@media (max-width: 576px) {
   .container {
     width: 100%;
   }
 }
 
-/* Small screens (up to 768px) */
-@media (max-width: 767.98px) {
+// X-Small devices (portrait phones, greater than or equal to 576px)
+@media (min-width: 576px) {
   .container {
-    width: 540px;
+    width: 100%;
   }
 }
 
-/* Medium screens (up to 992px) */
-@media (max-width: 991.98px) {
+// Small devices (landscape phones, greater than or equal to 768px)
+@media (min-width: 768px) {
   .container {
     width: 720px;
   }
 }
 
-/* Large screens (up to 1200px) */
-@media (max-width: 1199.98px) {
+// Medium devices (tablets, greater than or equal to 992px)
+@media (min-width: 992px) {
   .container {
     width: 960px;
   }
 }
 
-@media (min-width: 1201px) {
+// Large devices (desktops, greater than or equal to 1200px)
+@media (min-width: 1200px) {
   .container {
     width: 1140px;
   }
 }
-@media (min-width: 1401px) {
+
+// X-Large devices (large desktops, greater than or equal to 1400px)
+@media (min-width: 1400px) {
   .container {
     width: 1320px;
   }

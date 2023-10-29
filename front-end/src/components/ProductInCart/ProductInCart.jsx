@@ -9,6 +9,7 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 
 import './ProductInCart.scss';
+import './media.scss';
 
 const ProductInCart = ({ amount, product }) => {
   const { id, title, price, discont_price, image } = product || {};

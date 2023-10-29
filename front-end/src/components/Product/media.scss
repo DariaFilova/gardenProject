@@ -1,0 +1,11 @@
+@media (max-width: 768px) {
+  .product {
+    &__image {
+      button {
+        display: block;
+        opacity: 1;
+      }
+    }
+  }
+}
+

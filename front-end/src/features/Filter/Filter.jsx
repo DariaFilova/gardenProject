@@ -1,5 +1,6 @@
 import React from 'react';
 import './Filter.scss';
+import './media.scss';
 
 const Filter = (props) => {
   const {

@@ -1,0 +1,19 @@
+@media (max-width: 575.98px) {
+}
+
+@media (max-width: 767.98px) {
+  .promo {
+    &__image {
+      display: none;
+    }
+
+    &__info {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 991.98px) {
+}
+

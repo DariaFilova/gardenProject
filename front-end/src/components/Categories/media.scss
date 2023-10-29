@@ -1,0 +1,16 @@
+@media (max-width: 768px) {
+  .categories {
+    &__content {
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .categories {
+    &__heading {
+      justify-content: center;
+    }
+  }
+}
+

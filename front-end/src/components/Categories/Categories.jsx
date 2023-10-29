@@ -6,6 +6,7 @@ import Loader from '../../features/Loader/Loader';
 import CategoryItem from '../CategoryItem/CategoryItem';
 
 import './Categories.scss';
+import './media.scss';
 
 const Categories = ({ numberOfCategoriesToDisplay }) => {
   const categories = useSelector((state) => state.categories.categories);

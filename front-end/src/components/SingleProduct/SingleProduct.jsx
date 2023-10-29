@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getSingleProduct } from '../../store/slices/ProductsSlice';
 import { useParams } from 'react-router-dom';
-import Loader from '../../features/Loader/Loader';
-import './SingleProduct.scss';
+
+import { getSingleProduct } from '../../store/slices/ProductsSlice';
 import { addProductToCart } from '../../store/slices/CartSlice';
+import Loader from '../../features/Loader/Loader';
+
+import './SingleProduct.scss';
+import './media.scss';
 
 const SingleProduct = ({ setShowModal }) => {
   const serverDomain = 'http://localhost:3333';

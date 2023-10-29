@@ -10,6 +10,9 @@ import SingleProductPage from './pages/SingleProductPage/SingleProductPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import { getCategories } from './store/slices/CategoriesSlice';
 import CartPage from './pages/CartPage/CartPage';
+import SalePage from './pages/SalePage/SalePage';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import CategoryPage from './pages/CategoryPage/CategoryPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -22,18 +25,18 @@ function App() {
   return (
     <>
       <div className='App'></div>
+      <ScrollToTop />
       <Routes>
         <Route path='/' element={<MainPage />} />
 
         <Route path='/products' element={<ProductsPage isOnSale={false} />} />
-        <Route path='/sale' element={<ProductsPage isOnSale={true} />} />
+        <Route path='/sale' element={<SalePage isOnSale={true} />} />
         <Route path='/cart' element={<CartPage />} />
         <Route path='/categories' element={<CategoriesPage />} />
-        <Route path='/categories/:categoryId' element={<ProductsPage />} />
+        <Route path='/categories/:categoryId' element={<CategoryPage />} />
         <Route path='/products/:productId' element={<SingleProductPage />} />
         <Route path='/*' element={<NotFoundPage />} />
       </Routes>
-      ;
     </>
   );
 }

@@ -5,6 +5,7 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
 import './Footer.scss';
+import './media.scss';
 
 const Footer = () => {
   return (

@@ -1,0 +1,50 @@
+@media (max-width: 768px) {
+  .singleProduct {
+    &__info {
+      width: 55%;
+    }
+
+    &__image {
+      width: 40%;
+    }
+    &__current-price {
+      font-size: 50px;
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .singleProduct {
+    padding-top: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    &__title {
+      text-align: center;
+    }
+    &__content {
+      flex-direction: column;
+      align-items: center;
+    }
+    &__image {
+      width: 85%;
+    }
+    &__info {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      button {
+        order: 1;
+        margin-top: 50px;
+      }
+    }
+    &__divider {
+      display: none;
+    }
+
+    &__price {
+      margin-top: 30px;
+    }
+  }
+}
+
